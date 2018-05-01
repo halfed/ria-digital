@@ -8,7 +8,7 @@ Create a simple user management application using React.
 
 Acceptance Criteria
 
-Basic
+<b>Basic</b>
 
 ·         Displays a list of users using JSX
 
@@ -27,7 +27,7 @@ o   Address
 ·         Has a basic UI (something more than unformatted text on a screen)
 
  
-Advanced
+<b>Advanced</b>
 
 ·         Incorporate React Routing so that new and update forms are their own page and URL
 
@@ -35,13 +35,13 @@ Advanced
 
 ·         Use Jest to unit test component
 
-Details
+<b>Details</b>
 
 User data should be maintained in the store and modified through actions. It does not have to persist outside of the application (no external JSON files or endpoints necessary).
 
 We’re looking for an understanding of:
 
-Basic
+<b>Basic</b>
 
 ·         How to use React’s state and props
 
@@ -49,7 +49,7 @@ Basic
 
 ·         ES6 JavaScript
 
-Advanced
+<b>Advanced</b>
 
 ·         How to use React Router
 
