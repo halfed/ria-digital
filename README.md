@@ -2,7 +2,7 @@
 User management app
 React Homework
 
-Overview
+<b>Overview</b>
 
 Create a simple user management application using React. 
 
