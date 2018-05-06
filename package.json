@@ -1,0 +1,44 @@
+{
+  "name": "gci",
+  "version": "1.0.0",
+  "description": "gci contact demo",
+  "main": "index.js",
+  "dependencies": {
+    "foundation-sites": "^6.4.4-rc1",
+    "grunt": "^1.0.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.1",
+    "grunt-sass": "^2.0.0",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halfed/gci-project.git"
+  },
+  "keywords": [
+    "gci-project"
+  ],
+  "author": "Ed Wince",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/halfed/gci-project/issues"
+  },
+  "homepage": "https://github.com/halfed/gci-project#readme"
+}

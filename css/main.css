@@ -1,0 +1,58 @@
+/*@import 'settings';
+@import 'foundation';
+@include foundation-everything;
+*/
+html, body {
+  font-size: 62.5%;
+  background-color: #202020;
+  color: #FFFFFF; }
+
+/*--- ELEMENTS ---*/
+header {
+  text-align: center;
+  margin-bottom: 20px; }
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold; }
+
+h3 {
+  font-size: 2.0rem;
+  font-weight: bold; }
+
+p {
+  font-size: 1.6rem; }
+
+ul {
+  list-style-type: none; }
+
+label {
+  color: #FFFFFF;
+  font-size: 1.3rem; }
+
+/*--- BUTTONS ---*/
+.button {
+  font-size: 1.1rem;
+  border-radius: 3px; }
+
+.button.small {
+  font-size: 1.0rem; }
+
+.success {
+  background-color: #78C10D; }
+
+/*--- POSITIONING ---*/
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.form-container {
+  margin: 0 15px; }
+
+.two-button-container {
+  width: 130px;
+  overflow: hidden; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,14 @@
+/*@import 'settings';
+@import 'foundation';
+@include foundation-everything;
+*/
+@import 'defaults';
+
+.form-container {
+	margin: 0 15px;
+}
+
+.two-button-container {
+	width: 130px;
+	overflow: hidden;
+}
