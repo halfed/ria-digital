@@ -96,16 +96,10 @@ export class App extends React.Component {
 
 	render() {
 		return (
-
 			<div>
 				<div className="grid-x">
 					<div className="columns small-12">
 						<ContactList contacts={this.state.list} handleRemove={this.handleRemove} handleEdit={this.handleEdit}/>
-					</div>
-				</div>
-				<div className="grid-x">
-					<div className="columns small-12 form-container">
-						<FormApp firstName={this.state.firstName} lastName={this.state.lastName} address={this.state.address} contactId={this.state.contactId} onSubmit={this.handleSubmit} onChange={this.handleChange} />
 					</div>
 				</div>
 			</div>
