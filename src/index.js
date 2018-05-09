@@ -1,5 +1,5 @@
 import React from 'react';
-import ReacDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import {App} from './containers/App';
 
 class ContactsApp extends React.Component {
@@ -12,5 +12,5 @@ class ContactsApp extends React.Component {
 	}
 }
 
-ReacDOM.render(<ContactsApp />, document.getElementById('app'));
+ReactDOM.render(<ContactsApp />, document.getElementById('app'));
 

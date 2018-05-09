@@ -60,6 +60,7 @@ export class App extends React.Component {
 	}
 
 	handleSubmit(contact) {
+
 		let contactList = this.state.list;
 
 		if(contact.id > 0) {
@@ -99,7 +100,7 @@ export class App extends React.Component {
 
 			<div>
 				<div className="grid-x">
-					<div className="columns small-12">
+					<div className="columns small-12 contacts-container">
 						<ContactList contacts={this.state.list} handleRemove={this.handleRemove} handleEdit={this.handleEdit}/>
 					</div>
 				</div>

@@ -18,6 +18,10 @@ export class FormApp extends React.Component {
 	handleSubmit(e) {
     	e.preventDefault();
 
+    	if(this.props.firstName === "" || this.props.lastName === "" || this.props.address === "") {
+    		return;
+    	}
+
     	//create a contact object of new or updated person and send it to parent component
     	const contact = {
     		id: this.props.contactId,

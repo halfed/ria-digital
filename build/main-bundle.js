@@ -8217,6 +8217,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 	}
 
 	handleSubmit(contact) {
+
 		let contactList = this.state.list;
 
 		if (contact.id > 0) {
@@ -8256,7 +8257,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 				{ className: 'grid-x' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					{ className: 'columns small-12' },
+					{ className: 'columns small-12 contacts-container' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_ContactList__["a" /* default */], { contacts: this.state.list, handleRemove: this.handleRemove, handleEdit: this.handleEdit })
 				)
 			),
@@ -9102,6 +9103,10 @@ class FormApp extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+
+		if (this.props.firstName === "" || this.props.lastName === "" || this.props.address === "") {
+			return;
+		}
 
 		//create a contact object of new or updated person and send it to parent component
 		const contact = {
