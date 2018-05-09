@@ -3,8 +3,6 @@ import initialState from './initialState';
 import {hashHistory} from 'react-router';
 
 export default function contactsReducer(state = initialState.list, action) {
-  console.log("action in contactsReducer r2: " + action.type);
-  console.log("state in contactsReducer r2: " + state);
   switch(action.type) {
     case types.LOAD_CONTACTS_SUCCESS:
       return action.list
@@ -18,6 +16,11 @@ export default function contactsReducer(state = initialState.list, action) {
       newState.splice(action.index, 1);
       return newState;
     }
+    case types.UPDATE_CONTACT_SUCCESS:
+      hashHistory.push("/");
+      const newState = Object.assign([], state);
+      newState.splice(action.index, 1, action.contact);
+      return newState;
     default: 
       return state;
   }

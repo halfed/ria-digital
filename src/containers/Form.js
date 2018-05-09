@@ -12,12 +12,37 @@ class Form extends React.Component {
 			firstName: "",
 			lastName: "",
 			address: "",
-			contactId: 0
+			contactId: 0,
+			isEditing: false,
+			contactIndex: 0
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 	}
+
+	componentWillReceiveProps(nextProps) {
+
+	    let contactList = this.props.list,
+	        contactId = this.props.editContactId,
+	        index;
+
+	    if(this.props.editContactId) {
+	    	index = contactList.findIndex((item, i) => {
+			  return item.id == contactId;
+			});
+			this.setState({contactId: contactList[index].id, firstName: contactList[index].first_name, lastName: contactList[index].last_name, address: contactList[index].address, isEditing: true, contactIndex: index});
+	    }
+	    else {
+	    	this.setState({contactId: 0, 
+	    				   firstName: "", 
+	    				   lastName: "", 
+	    				   address: "", 
+	    				   isEditing: false, 
+	    				   contactIndex: 0
+	    				});
+	    }
+	 }
 
 	handleChange(e) {
 		const formInput = {};
@@ -40,8 +65,9 @@ class Form extends React.Component {
     		address: this.state.address
     	}
 
-    	if(contact.id > 0) {
-			//this will be for updating a contact
+		if(this.state.isEditing) {
+			let index = this.state.contactIndex;
+			this.props.actions.updateContact(index, contact);
 		}
 		else {
 			//contact id is 0 for new contact, so create new id using date now, fudging this to add an id here
@@ -49,18 +75,21 @@ class Form extends React.Component {
 			contact.id = Date.now()
 			//append new contact object to end of object array
 			//contactList = contactList.concat(contact)
+			this.props.actions.createContact(contact);
 		}
-
-    	this.props.actions.createContact(contact)
+    	
 	}
 
 	render() {
+		const editing = this.state.isEditing;
 		return (
+			
 			<form onSubmit={this.handleSubmit}>
+				{editing ? <h2>Edit Contact</h2> : ""}
 				<div className="grid-x">
 					<div className="columns small-8">
 						<label htmlFor="firstName">First Name: </label>
-						<input type="text" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.first_name} />
+						<input type="text" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.firstName} />
 					</div>
 				</div>
 				<div className="grid-x">
@@ -82,19 +111,11 @@ class Form extends React.Component {
 	}
 }
 
-Form.propTypes = {
-	/*firstName: PropTypes.string.isRequired,
-	lastName: PropTypes.string.isRequired,
-	address: PropTypes.string.isRequired,
-	contactId: PropTypes.number.isRequired,
-	onChange: PropTypes.func.isRequired,
-	onSubmit: PropTypes.func.isRequired*/
-}
-
 //look here
 function mapStateToProps(state, ownProps) {
   return {
-    list: state.list
+    list: state.list,
+    editContactId: ownProps.params.id
   };
 }
 

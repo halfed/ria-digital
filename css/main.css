@@ -59,8 +59,22 @@ label {
 .form-container {
   margin: 0 15px; }
 
+.contacts-container form {
+  padding: 20px; }
+
 .two-button-container {
   width: 130px;
   overflow: hidden; }
+
+@media only screen and (min-width: 1023px) {
+  .grid-x .contacts-container {
+    width: 350px;
+    margin: 40px auto 0 auto; }
+
+  .grid-x .form-container {
+    width: 400px;
+    margin: 10px auto 0 auto;
+    border: 1px solid #FFFFFF;
+    padding: 20px 0 0 35px; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 export class FormApp extends React.Component {
 	render() {
 		return (
-			<div className="grid-x form-container">
-        		<div className="columns small-12">
+			<div className="grid-x">
+        		<div className="columns small-12 form-container">
 					{this.props.children}
 				</div>
 			</div>

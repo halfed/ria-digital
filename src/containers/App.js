@@ -7,7 +7,7 @@ class App extends React.Component {
       <div className="container-fluid">
         <Nav />
         <div className="grid-x">
-        	<div className="columns small-12">
+        	<div className="columns small-12 contacts-container">
         		{this.props.children}
         	</div>
         </div>

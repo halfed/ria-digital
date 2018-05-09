@@ -37,6 +37,9 @@ ReactDOM.render(
 		 	<Route path="form" component={FormApp}>
 		 		<IndexRoute  component={Form} />
 		 	</Route>
+		 	<Route path="form-edit/:id" component={FormApp}>
+		 		<IndexRoute  component={Form} />
+		 	</Route>
 	    </Route>
 
 	 </Router>

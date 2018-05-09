@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';  
+import {bindActionCreators} from 'redux';
+import { Link, IndexLink } from 'react-router';
 import * as contactsAction from '../../actions/contactsAction';
 
 class ContactList extends React.Component {
@@ -31,7 +32,7 @@ class ContactList extends React.Component {
 						<h3>{result.first_name} {result.last_name}</h3>
 						<p>{result.address}</p>
 						<div className="two-button-container">
-							<button type="button" className="button small left"  data-typeid={result.id}>Edit</button> 
+							<Link to={"/form-edit/"+result.id} className="button small left" data-typeid={result.id}>Edit</Link>
 							<button type="button" className="button small right alert"  onClick={this.handleRemove} data-typeid={result.id}>Remove</button>
 						</div>
 					</li>
@@ -42,7 +43,7 @@ class ContactList extends React.Component {
 }
 
 ContactList.propTypes = {
-	//contacts: PropTypes.array.isRequired
+	list: PropTypes.array.isRequired
 }
 
 function mapStateToProps(state, ownProps) {

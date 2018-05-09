@@ -13,6 +13,10 @@ export function deleteContactSuccess(index) {
   return {type: types.DELETE_CONTACT_SUCCESS, index}
 }
 
+export function updateContactSuccess(index, contact) {  
+  return {type: types.UPDATE_CONTACT_SUCCESS, index, contact}
+}
+
 export function loadContacts() {  
   return function(dispatch) {
   	const list = contactsApi.getAllContacts();
@@ -31,4 +35,10 @@ export function deleteContact(index) {
   return function(dispatch) {
     return dispatch(deleteContactSuccess(index));
     };
-  }
+}
+
+export function updateContact(index, contact) {  
+  return function (dispatch) {
+    return dispatch(updateContactSuccess(index, contact));
+  };
+}
