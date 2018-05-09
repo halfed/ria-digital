@@ -5393,7 +5393,7 @@ ReacDOM.render(<ContactsApp />, document.getElementById('app'));*/
 
 const store = Object(__WEBPACK_IMPORTED_MODULE_3__store_configureStore__["a" /* default */])();
 store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_10__actions_contactsAction__["loadContacts"])());
-
+//USING HASHHISTORY AS IT WAS EASIER TO GET THE ROUTES WORKING FOR NOW, LATER WILL USE BROWSERHISTORY
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 	__WEBPACK_IMPORTED_MODULE_4_react_redux__["a" /* Provider */],
 	{ store: store },
@@ -17230,6 +17230,8 @@ class ContactList extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 	}
 
 	handleRemove(e) {
+		//GET THE INDEX OF CONTACT IN ARRAY TO SEND TO ACTIONS FOR PROCESSING, MAYBE CAN JUST SEND ID AND LET REDUCER 
+		//DO THIS WORK
 		let contactId = e.target.getAttribute('data-typeId'),
 		    newContactList = this.props.list,
 		    index;
@@ -17376,17 +17378,18 @@ class Form extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-
 		let contactList = this.props.list,
 		    contactId = this.props.editContactId,
 		    index;
 
+		//IF WE ARE IN EDITING MODE WE CAN UPDATE THE STATE WITH THE CURRENT CONTACT THAT IS EDITING    
 		if (this.props.editContactId) {
 			index = contactList.findIndex((item, i) => {
 				return item.id == contactId;
 			});
 			this.setState({ contactId: contactList[index].id, firstName: contactList[index].first_name, lastName: contactList[index].last_name, address: contactList[index].address, isEditing: true, contactIndex: index });
 		} else {
+			//THIS IS TO RESET THE CURRENT STATE IF USER CLICKS EDIT AND THEN CLICKS NEW CONTACT FORM LINK
 			this.setState({ contactId: 0,
 				firstName: "",
 				lastName: "",
@@ -17406,6 +17409,7 @@ class Form extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
+		//SIMPLE FORM VALIDATION
 		if (this.state.firstName === "" || this.state.lastName === "" || this.state.address === "") {
 			return;
 		}
@@ -17430,7 +17434,7 @@ class Form extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 			this.props.actions.createContact(contact);
 		}
 	}
-
+	//MAYBE TOO MUCH GOING ON HERE CAN CREATE A PRESENTAIONAL PROP FOR FORM
 	render() {
 		const editing = this.state.isEditing;
 		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -17493,7 +17497,6 @@ class Form extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 	}
 }
 
-//look here
 function mapStateToProps(state, ownProps) {
 	return {
 		list: state.list,

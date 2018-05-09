@@ -62,3 +62,6 @@ We’re looking for an understanding of:
  
 
 Complete at least the Basic acceptance criteria and only attempt the Advanced acceptance criteria if all requirements can be met or if we are expecting you to do so. The environment you use is up to you. Please make your code accessible through Git and be prepared to share it with the team.
+
+Using Grunt as a task runner for building sass and minifying. 
+Webpack to run babel and build components.

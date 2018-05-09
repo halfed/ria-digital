@@ -22,18 +22,18 @@ class Form extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-
 	    let contactList = this.props.list,
 	        contactId = this.props.editContactId,
 	        index;
 
+	    //IF WE ARE IN EDITING MODE WE CAN UPDATE THE STATE WITH THE CURRENT CONTACT THAT IS EDITING    
 	    if(this.props.editContactId) {
 	    	index = contactList.findIndex((item, i) => {
 			  return item.id == contactId;
 			});
 			this.setState({contactId: contactList[index].id, firstName: contactList[index].first_name, lastName: contactList[index].last_name, address: contactList[index].address, isEditing: true, contactIndex: index});
 	    }
-	    else {
+	    else { //THIS IS TO RESET THE CURRENT STATE IF USER CLICKS EDIT AND THEN CLICKS NEW CONTACT FORM LINK
 	    	this.setState({contactId: 0, 
 	    				   firstName: "", 
 	    				   lastName: "", 
@@ -53,6 +53,7 @@ class Form extends React.Component {
 	handleSubmit(e) {
     	e.preventDefault();
 
+    	//SIMPLE FORM VALIDATION
     	if(this.state.firstName === "" || this.state.lastName === "" || this.state.address === "") {
     		return;
     	}
@@ -79,11 +80,10 @@ class Form extends React.Component {
 		}
     	
 	}
-
+	//MAYBE TOO MUCH GOING ON HERE CAN CREATE A PRESENTAIONAL PROP FOR FORM
 	render() {
 		const editing = this.state.isEditing;
 		return (
-			
 			<form onSubmit={this.handleSubmit}>
 				{editing ? <h2>Edit Contact</h2> : ""}
 				<div className="grid-x">
@@ -111,7 +111,6 @@ class Form extends React.Component {
 	}
 }
 
-//look here
 function mapStateToProps(state, ownProps) {
   return {
     list: state.list,

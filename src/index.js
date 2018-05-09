@@ -28,7 +28,7 @@ import {loadContacts} from './actions/contactsAction';
 
 const store = configureStore();
 store.dispatch(loadContacts());
-
+//USING HASHHISTORY AS IT WAS EASIER TO GET THE ROUTES WORKING FOR NOW, LATER WILL USE BROWSERHISTORY
 ReactDOM.render(
  <Provider store={store}>
 	 <Router history={hashHistory}>

@@ -13,6 +13,8 @@ class ContactList extends React.Component {
 	}
 
 	handleRemove(e) {
+		//GET THE INDEX OF CONTACT IN ARRAY TO SEND TO ACTIONS FOR PROCESSING, MAYBE CAN JUST SEND ID AND LET REDUCER 
+		//DO THIS WORK
 		let contactId = e.target.getAttribute('data-typeId'),
 			  newContactList = this.props.list,
 			  index;
