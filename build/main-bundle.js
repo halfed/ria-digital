@@ -12923,6 +12923,7 @@ const rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* combineRed
 
 
 function contactsReducer(state = __WEBPACK_IMPORTED_MODULE_1__initialState__["a" /* default */].list, action) {
+  //NO MUTATING ORGININAL STATE
   const newState = Object.assign([], state);
   switch (action.type) {
     case __WEBPACK_IMPORTED_MODULE_0__actions_actionTypes__["c" /* LOAD_CONTACTS_SUCCESS */]:
@@ -12933,13 +12934,11 @@ function contactsReducer(state = __WEBPACK_IMPORTED_MODULE_1__initialState__["a"
       return newState.concat(action.contact);
     case __WEBPACK_IMPORTED_MODULE_0__actions_actionTypes__["b" /* DELETE_CONTACT_SUCCESS */]:
       {
-        //const newState = Object.assign([], state);
         newState.splice(action.index, 1);
         return newState;
       }
     case __WEBPACK_IMPORTED_MODULE_0__actions_actionTypes__["d" /* UPDATE_CONTACT_SUCCESS */]:
       __WEBPACK_IMPORTED_MODULE_2_react_router__["e" /* hashHistory */].push("/");
-      //const newState = Object.assign([], state);
       newState.splice(action.index, 1, action.contact);
       return newState;
     default:

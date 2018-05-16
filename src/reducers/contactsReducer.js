@@ -13,13 +13,11 @@ export default function contactsReducer(state = initialState.list, action) {
       //append new contact object to end of object array
       return newState.concat(action.contact);
     case types.DELETE_CONTACT_SUCCESS: {
-      //const newState = Object.assign([], state);
       newState.splice(action.index, 1);
       return newState;
     }
     case types.UPDATE_CONTACT_SUCCESS:
       hashHistory.push("/");
-      //const newState = Object.assign([], state);
       newState.splice(action.index, 1, action.contact);
       return newState;
     default: 
