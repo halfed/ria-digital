@@ -5363,22 +5363,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_FormApp__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__containers_Form__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__actions_contactsAction__ = __webpack_require__(33);
-/*import React from 'react';
-import ReacDOM from 'react-dom';
-import {App} from './containers/App';
-
-class ContactsApp extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (<App />);
-	}
-}
-
-ReacDOM.render(<ContactsApp />, document.getElementById('app'));*/
-
 
 
 
@@ -12939,23 +12923,23 @@ const rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* combineRed
 
 
 function contactsReducer(state = __WEBPACK_IMPORTED_MODULE_1__initialState__["a" /* default */].list, action) {
+  const newState = Object.assign([], state);
   switch (action.type) {
     case __WEBPACK_IMPORTED_MODULE_0__actions_actionTypes__["c" /* LOAD_CONTACTS_SUCCESS */]:
       return action.list;
     case __WEBPACK_IMPORTED_MODULE_0__actions_actionTypes__["a" /* CREATE_CONTACT_SUCCESS */]:
       __WEBPACK_IMPORTED_MODULE_2_react_router__["e" /* hashHistory */].push("/");
       //append new contact object to end of object array
-      state = state.concat(action.contact);
-      return state;
+      return newState.concat(action.contact);
     case __WEBPACK_IMPORTED_MODULE_0__actions_actionTypes__["b" /* DELETE_CONTACT_SUCCESS */]:
       {
-        const newState = Object.assign([], state);
+        //const newState = Object.assign([], state);
         newState.splice(action.index, 1);
         return newState;
       }
     case __WEBPACK_IMPORTED_MODULE_0__actions_actionTypes__["d" /* UPDATE_CONTACT_SUCCESS */]:
       __WEBPACK_IMPORTED_MODULE_2_react_router__["e" /* hashHistory */].push("/");
-      const newState = Object.assign([], state);
+      //const newState = Object.assign([], state);
       newState.splice(action.index, 1, action.contact);
       return newState;
     default:
